@@ -1,0 +1,24 @@
+# [START app_yaml]
+runtime: nodejs
+env: flex
+
+# [START env]
+# The following env variables may contain sensitive information that grants
+# anyone access to your database. Do not add this file to your source control.
+env_variables:
+  SQL_USER: user
+  SQL_PASSWORD: password
+  SQL_DATABASE: database
+  HOST: /cloudsql/test-postgress:us-central1:testpostgress
+  # e.g. my-awesome-project:us-central1:my-cloud-sql-instance
+  INSTANCE_CONNECTION_NAME: test-postgress:us-central1:testpostgress
+# [END env]
+
+# [START cloudsql_settings]
+beta_settings:
+  # The connection name of your instance, available by using
+  # 'gcloud beta sql instances describe [INSTANCE_NAME]' or from
+  # the Instance details page in the Google Cloud Platform Console.
+  cloud_sql_instances: test-postgress:us-central1:testpostgress
+# [END cloudsql_settings]
+# [END app_yaml]
